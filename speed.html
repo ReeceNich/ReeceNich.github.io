@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed</title>
+</head>
+<body>
+    
+    <div id='maxSpeed' style="font-size: 120px; text-align: center;"></div>
+    <div id='streetName' style="text-align: center;"></div>
+    
+    <div id='latitude' style="text-align: center;"></div>
+    <div id='longitude' style="text-align: center;"></div>
+
+
+<script>
+    var maxSpeedLabel = document.getElementById('maxSpeed');
+    var streetNameLabel = document.getElementById('streetName');
+    var latitudeLabel = document.getElementById('latitude');
+    var longitudeLabel = document.getElementById('longitude');
+    
+
+    var currentLocation = [0, 0];
+    var speed = 0;
+    var streetName = "";
+
+    function update() {
+        maxSpeedLabel.innerText = window.speed
+        streetNameLabel.innerText = window.streetName;
+        latitudeLabel.innerText = "Lat: " + currentLocation[0];
+        longitudeLabel.innerText = "Lon: " + currentLocation[1];
+    }
+
+    setInterval(function(){
+        getLocation(); //saves in currentLocation array
+        window.speed = getSpeed()
+        update();
+    }, 4000);
+
+    function formatSpeed(speed) {
+        return speed + " mph";
+    }
+
+    function getSpeed() {
+        // https://nominatim.openstreetmap.org/reverse?lat=50.762614&lon=-1.306948&extratags=1
+        // http://overpass-api.de/api/interpreter?data=[out:json];way(around:10.0,50.762614,-1.306948);out;
+        
+        console.log(`WEBSITE https://overpass-api.de/api/interpreter?data=[out:json];way(around:15.0,${currentLocation[0]},${currentLocation[1]});out; end`);
+
+        fetch(`https://overpass-api.de/api/interpreter?data=[out:json];way(around:50.0,${currentLocation[0]},${currentLocation[1]});out;`, {mode: 'cors'})
+        .then((response) => {
+            return response.json()
+        })
+        .then((data) => {
+            // Work with JSON data here
+            console.log(data)
+
+            for(i = 0; i < data['elements'].length; i++) {
+                window.streetName = data['elements'][i]['tags']['name'];
+
+                try {
+                    if(data['elements'][i]['tags']['maxspeed'] === undefined) {
+                        continue;
+                    } else {
+                        window.speed = data['elements'][i]['tags']['maxspeed'];
+                        console.log("FOUND SPEED " + speed);
+                        window.streetName = data['elements'][i]['tags']['name'];
+
+                        return data['elements'][i]['tags']['maxspeed'];
+                        break;
+                    }
+                    
+
+                } catch(err) {
+                    console.warn(err);
+                }
+
+            }
+
+        })
+        .catch((err) => {
+            // Do something for an error here
+        })
+
+
+        return speed;
+    }
+
+    function getLocation() {
+        var lat = 0;
+        var lon = 0;
+
+        var options = {
+            enableHighAccuracy: true,
+            timeout: 5000,
+            maximumAge: 0
+        };
+
+        function success(pos) {
+            var crd = pos.coords;
+
+            console.log('Your current position is:');
+            console.log('Latitude : ' + crd.latitude);
+            console.log('Longitude: ' + crd.longitude);
+            console.log('More or less ' + crd.accuracy +' meters.');
+            
+            window.currentLocation = [crd.latitude, crd.longitude];
+        }
+
+        function error(err) {
+            console.warn(`ERROR(${err.code}): ${err.message}`);
+        }
+
+        navigator.geolocation.getCurrentPosition(success, error, options);
+
+        console.log(lat + lon);
+        return [lat, lon];
+    }
+
+</script>
+
+</body>
+</html>
+
+
