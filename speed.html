@@ -7,16 +7,24 @@
 </head>
 <body>
     
-    <div id='maxSpeed' style="font-size: 120px; text-align: center;"></div>
-    <div id='streetName' style="text-align: center;"></div>
+    <div style="text-align: center; border: solid red 5px;">
+        <h1><div id='maxSpeed' style="font-size: 100px;"></div></h1>
+        <h4>Maximum Speed Limit</h4>
+    </div>
+    <h3><div id='streetName' style="text-align: center;"></div></h3>
+    <h3><div id='ref' style="text-align: center;"></div></h3>
     
-    <div id='latitude' style="text-align: center;"></div>
-    <div id='longitude' style="text-align: center;"></div>
+    <h6><div id='latitude' style="text-align: center; color: gray;"></div>
+    <div id='longitude' style="text-align: center; color: gray;"></div></h6>
+
+
+    <h6 style="text-align: center;">Written by Reece N. Uses OpenStreetMap data.</h6>
 
 
 <script>
     var maxSpeedLabel = document.getElementById('maxSpeed');
     var streetNameLabel = document.getElementById('streetName');
+    var refLabel = document.getElementById('ref');
     var latitudeLabel = document.getElementById('latitude');
     var longitudeLabel = document.getElementById('longitude');
     
@@ -24,10 +32,12 @@
     var currentLocation = [0, 0];
     var speed = 0;
     var streetName = "";
+    var ref = "";
 
     function update() {
         maxSpeedLabel.innerText = window.speed
-        streetNameLabel.innerText = window.streetName;
+        streetNameLabel.innerText = "Name: " + window.streetName;
+        refLabel.innerText = "Reference: " + window.ref;
         latitudeLabel.innerText = "Lat: " + currentLocation[0];
         longitudeLabel.innerText = "Lon: " + currentLocation[1];
     }
@@ -36,7 +46,7 @@
         getLocation(); //saves in currentLocation array
         window.speed = getSpeed()
         update();
-    }, 4000);
+    }, 5000);
 
     function formatSpeed(speed) {
         return speed + " mph";
@@ -48,7 +58,7 @@
         
         console.log(`WEBSITE https://overpass-api.de/api/interpreter?data=[out:json];way(around:15.0,${currentLocation[0]},${currentLocation[1]});out; end`);
 
-        fetch(`https://overpass-api.de/api/interpreter?data=[out:json];way(around:50.0,${currentLocation[0]},${currentLocation[1]});out;`, {mode: 'cors'})
+        fetch(`https://overpass-api.de/api/interpreter?data=[out:json];way(around:10.0,${currentLocation[0]},${currentLocation[1]});out;`, {mode: 'cors'})
         .then((response) => {
             return response.json()
         })
@@ -56,16 +66,18 @@
             // Work with JSON data here
             console.log(data)
 
+            var foundSpeed = false;
+
             for(i = 0; i < data['elements'].length; i++) {
-                window.streetName = data['elements'][i]['tags']['name'];
 
                 try {
                     if(data['elements'][i]['tags']['maxspeed'] === undefined) {
                         continue;
                     } else {
+                        foundSpeed = true;
                         window.speed = data['elements'][i]['tags']['maxspeed'];
-                        console.log("FOUND SPEED " + speed);
                         window.streetName = data['elements'][i]['tags']['name'];
+                        window.ref = data['elements'][i]['tags']['ref'];
 
                         return data['elements'][i]['tags']['maxspeed'];
                         break;
@@ -76,6 +88,12 @@
                     console.warn(err);
                 }
 
+            }
+
+            if(!foundSpeed) {
+                window.speed = "? mph";
+                window.streetName = data['elements'][0]['tags']['name'];
+                window.ref = data['elements'][0]['tags']['ref'];
             }
 
         })
