@@ -11,8 +11,8 @@
         <h1><div id='maxSpeed' style="font-size: 100px;"></div></h1>
         <h4>Maximum Speed Limit</h4>
     </div>
-    <h3><div id='streetName' style="text-align: center;"></div></h3>
-    <h3><div id='ref' style="text-align: center;"></div></h3>
+    <h1><div id='streetName' style="text-align: center;"></div></h1>
+    <h1><div id='ref' style="text-align: center;"></div></h1>
     
     <h6><div id='latitude' style="text-align: center; color: gray;"></div>
     <div id='longitude' style="text-align: center; color: gray;"></div></h6>
@@ -91,9 +91,44 @@
             }
 
             if(!foundSpeed) {
-                window.speed = "? mph";
-                window.streetName = data['elements'][0]['tags']['name'];
-                window.ref = data['elements'][0]['tags']['ref'];
+                assumeResidential = false;
+
+                for(i = 0; i < data['elements'].length; i++) {
+
+                    try {
+                        
+                        if(data['elements'][i]['tags']['highway'] == "residential") {
+                            window.speed = "*30* mph";
+                            assumeResidential = true;
+                        }
+                        if(data['elements'][i]['tags']['building'] == "residential") {
+                            window.speed = "*30* mph";
+                            assumeResidential = true;
+                        }
+
+                    } catch(err) {
+                        console.warn(err);
+                    }
+
+                }
+                
+                if(!assumeResidential) {
+                    window.speed = "?";
+                }
+
+                if(data['elements'][0]['tags']['name'] === undefined) {
+                    window.streetName = "";
+                } else {
+                    window.streetName = data['elements'][0]['tags']['name'];
+                }
+
+                if(data['elements'][0]['tags']['ref'] === undefined) {
+                    window.ref = "";
+                } else {
+                    window.ref = data['elements'][0]['tags']['ref'];
+                }
+                
+                
             }
 
         })
