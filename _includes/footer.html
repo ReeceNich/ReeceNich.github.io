@@ -20,6 +20,9 @@
           {% if site.author.email -%}
             <li><a class="u-email" href="mailto:{{ site.author.email }}">{{ site.author.email }}</a></li>
           {%- endif %}
+          {% if site.author.privacy -%}
+            <li><a class="u-email" href="{{ site.baseurl }}{% link privacy.md %}">Privacy Policy</a></li>
+          {%- endif %}
         </ul>
       {%- endif %}
       </div>
