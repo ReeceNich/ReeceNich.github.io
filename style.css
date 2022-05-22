@@ -3,6 +3,10 @@ body {
     font-family: 'Open Sans', sans-serif;
     color: white;
     background: rgb(30, 30, 30);
+    background: url("assets/background.jpeg");
+    background-size: auto;
+    background-repeat: no-repeat;
+    /* background-position: center center;   */
 }
 
 .navbar {
