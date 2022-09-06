@@ -33,6 +33,7 @@ body {
     align-items: flex-end;
     flex-wrap: wrap;
     margin: 0px;
+    padding: 0px;
     /* padding: 1em 0em 0em 0em; */
     /* background-color: red; */
 }
@@ -62,6 +63,14 @@ body {
     background: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
     /* filter: brightness(90%); */
+}
+
+@media screen and (max-width: 650px) {
+    .navbar-item { display: none; }
+    /* .topnav a.icon {
+        float: right;
+        display: block;
+    } */
 }
 
 
@@ -117,9 +126,12 @@ body {
     background: rgb(69, 69, 69);
     padding: 2em;
     margin: 2em 0em;
+    width: 80%;
+
     border-radius: 1em;
 
-    width: 80%;
+    border: 2px rgb(220, 220, 220) solid;
+    box-shadow: 0px 0px 15px rgb(150, 150, 150);
 }
 
 .box h2 {
