@@ -1,0 +1,12 @@
+# Site settings
+title: Reece Nicholls
+description: I am a Web Engineer, with additional interests in mobile app development and data science.
+url: "https://www.reecenicholls.co.uk"
+
+# Build settings
+exclude:
+  - _archive
+  - Gemfile
+  - Gemfile.lock
+  - README.md
+  - .DS_Store
