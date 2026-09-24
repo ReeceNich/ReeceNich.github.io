@@ -1,0 +1,76 @@
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "{{ site.url }}/#person",
+      "name": "Reece Nicholls",
+      "url": "{{ site.url }}",
+      "image": "{{ site.url }}/assets/reece.jpg",
+      "jobTitle": "Full-Stack .NET & Software Engineer",
+      "alumniOf": {
+        "@type": "CollegeOrUniversity",
+        "name": "University of the West of England (UWE Bristol)"
+      },
+      "nationality": {
+        "@type": "Country",
+        "name": "United Kingdom"
+      },
+      "knowsAbout": [
+        "C#",
+        ".NET",
+        "ASP.NET Core",
+        "Microsoft Azure",
+        "DevOps",
+        "CI/CD Automation",
+        "Cloud Architecture",
+        "Artificial Intelligence",
+        "Natural Language Processing",
+        "Full-Stack Web Development"
+      ],
+      "sameAs": [
+        "https://github.com/ReeceNich",
+        "https://www.linkedin.com/in/reece-nicholls/",
+        "https://www.youtube.com/@reecenicholls",
+        "https://doi.org/10.1007/978-3-031-15937-4_37"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "{{ site.url }}/#website",
+      "url": "{{ site.url }}",
+      "name": "Reece Nicholls",
+      "description": "{{ site.description }}",
+      "publisher": {
+        "@id": "{{ site.url }}/#person"
+      },
+      "inLanguage": "en-GB"
+    }
+    {% if page.url == "/" or page.url == "" %}
+    ,
+    {
+      "@type": "ScholarlyArticle",
+      "@id": "https://doi.org/10.1007/978-3-031-15937-4_37",
+      "headline": "{{ site.data.projects.flagship.title }}",
+      "name": "{{ site.data.projects.flagship.title }}",
+      "author": {
+        "@id": "{{ site.url }}/#person"
+      },
+      "datePublished": "2022-09-07",
+      "description": "{{ site.data.projects.flagship.summary }}",
+      "url": "https://doi.org/10.1007/978-3-031-15937-4_37",
+      "sameAs": "https://doi.org/10.1007/978-3-031-15937-4_37",
+      "isPartOf": {
+        "@type": "PublicationIssue",
+        "name": "{{ site.data.projects.flagship.publication }}",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Springer Nature"
+        }
+      }
+    }
+    {% endif %}
+  ]
+}
+</script>

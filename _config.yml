@@ -7,6 +7,9 @@ lang: "en-GB"
 locale: "en_GB"
 
 # Build settings
+plugins:
+  - jekyll-sitemap
+
 exclude:
   - _archive
   - Gemfile
