@@ -1,142 +1,186 @@
 ---
 layout: default
-title: Reece Nicholls
-description: I am a Web Engineer, with additional interests in mobile app development and data science.
+title: Reece Nicholls | Full-Stack .NET & Software Engineer
+description: Full-Stack .NET & Software Engineer specialising in C#, .NET, Azure, DevOps, CI/CD automation, and web architecture.
 ---
-<div class="mb-3 px-5 px-5" id="intro">
-    <div class="container-xxl">
-        <div class="col-md-8 mx-auto text-center">
-            <img src="/assets/reece.jpg" width="250" height="250" alt="Portrait of Reece" class="mx-auto mb-3 profile mt-5">
 
-            <h1 class="mb-3 fw-semibold lh-sm">Hi, I'm Reece Nicholls!</h1>
-            <p class="lead mb-4">
-                I am a Web Engineer and graduate in Business Computing BSc(Hons) from the University of the West of England (UWE),
-                UK.
-            </p>
-            <h2 class="mb-3 fw-semibold lh-sm">About Me</h2>
-            <p class="lead mb-4">
-                I am proficient in C#, .NET, Python, HTML, CSS, JavaScript, Swift & PHP. Primarily interested in web
-                development, as well as mobile app development and data science.
-            </p>
-            <p class="lead mb-4">
-                My studies focused on web development, business analytics, organisations, and IT projects.
-            </p>
+<section id="about" class="hero-section text-center text-lg-start">
+    <div class="container-xl px-3 px-md-4">
+        <div class="row align-items-center g-4 g-lg-5">
+            <div class="col-lg-4 text-center">
+                <div class="hero-avatar-wrapper mb-3 mb-lg-0">
+                    <img src="/assets/reece.webp" width="220" height="220" alt="Portrait of Reece Nicholls" class="profile" fetchpriority="high" decoding="async">
+                </div>
+            </div>
+            <div class="col-lg-8">
+                <h1 class="display-5 fw-bold lh-sm mb-2 text-body-emphasis">
+                    Hi, I'm Reece Nicholls.
+                </h1>
+                
+                <p class="h4 fw-medium text-primary mb-4">
+                    Full-Stack .NET &amp; Software Engineer
+                </p>
+                
+                <p class="lead text-body-secondary mb-4">
+                    I build robust enterprise web applications, backend services, and cloud infrastructure.<br /> Lead author of peer-reviewed neural network research presented at ICANN 2022.
+                </p>
+
+                <div class="d-flex flex-wrap align-items-center gap-3 mb-4 justify-content-center justify-content-lg-start">
+                    <a href="mailto:{{ site.email | default: 'contact@reecenicholls.co.uk' }}" class="btn btn-primary rounded-pill px-4 py-2 d-inline-flex align-items-center gap-2">
+                        <i class="bi bi-envelope-fill"></i> Get in Touch
+                    </a>
+                    <a href="#projects" class="btn btn-outline-secondary rounded-pill px-4 py-2 d-inline-flex align-items-center gap-2">
+                        <i class="bi bi-grid-fill"></i> View Projects &amp; Research
+                    </a>
+                    <a href="https://github.com/ReeceNich" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary rounded-pill px-4 py-2 d-inline-flex align-items-center gap-2">
+                        <i class="bi bi-github"></i> GitHub
+                    </a>
+                    <a href="https://www.linkedin.com/in/reece-nicholls/" target="_blank" rel="noopener noreferrer" class="btn btn-outline-secondary rounded-pill px-4 py-2 d-inline-flex align-items-center gap-2">
+                        <i class="bi bi-linkedin"></i> LinkedIn
+                    </a>
+                </div>
+
+                <div class="d-flex flex-wrap align-items-center gap-3 text-body-secondary small pt-2 border-top">
+                    <span class="d-inline-flex align-items-center gap-1">
+                        <i class="bi bi-mortarboard text-primary"></i> BSc (Hons) Business Computing &bull; UWE Bristol
+                    </span>
+                    <span class="d-none d-sm-inline text-body-tertiary" aria-hidden="true">&bull;</span>
+                    <span class="d-inline-flex align-items-center gap-1">
+                        <i class="bi bi-award text-primary"></i> ICANN 2022 Lead Author (Springer)
+                    </span>
+                    <span class="d-none d-sm-inline text-body-tertiary" aria-hidden="true">&bull;</span>
+                    <span class="d-inline-flex align-items-center gap-1">
+                        <i class="bi bi-geo-alt text-primary"></i> United Kingdom
+                    </span>
+                </div>
+            </div>
         </div>
     </div>
-</div>
+</section>
 
-<hr>
+<section id="skills" class="py-5 bg-body-tertiary border-top border-bottom">
+    <div class="container-xl px-3 px-md-4">
+        <div class="text-center max-w-700 mx-auto mb-5">
+            <h2 class="h2 fw-bold text-body-emphasis mb-3">Core Engineering Skills</h2>
+            <p class="text-body-secondary">
+                Delivering reliable and accessible client-side web applications, cloud infrastructure, and modern web technologies.
+            </p>
+        </div>
 
-<div class="container">
-    <h2 class="mb-3 fw-semibold lh-sm text-center">My Projects</h2>
+        <div class="row g-4">
+            {% for domain in site.data.skills %}
+            <div class="col-md-6 col-lg-4">
+                <div class="skill-card shadow-sm">
+                    <div class="skill-icon-wrap">
+                        <i class="bi {{ domain.icon }}"></i>
+                    </div>
+                    <h3 class="h5 fw-bold text-body-emphasis mb-2">{{ domain.title }}</h3>
+                    <p class="text-body-secondary small mb-4 flex-grow-1">
+                        {{ domain.summary }}
+                    </p>
+                    <div class="d-flex flex-wrap gap-2">
+                        {% for skill in domain.skills %}
+                        <span class="tech-pill">{{ skill }}</span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
 
-    <section class="row g-3 g-md-5 pb-md-5 mb-5 align-items-center">
-        <div class="col-lg-6">
-            <h3 class="mb-3 fw-semibold lh-sm">Research Conference Paper - <i>"Problem Classification for Tailored Helpdesk Auto-replies"</i></h3>
-            <p class="lead fw-normal">
-                A machine learning, neural network based research conference paper I co-authored as an undergraduate student
-                and presented at the International Conference on Artificial Neural Networks (ICANN) 2022.
-            </p>
-            <p class="lead fw-normal">
-                <strong>DOI:</strong> 10.1007/978-3-031-15937-4_37
-            </p>
-            <p class="lead fw-normal">
-                <a href="https://doi.org/10.1007/978-3-031-15937-4_37" target="_blank" class="icon-link icon-link-hover fw-semibold">
-                    View Research Paper
-                    <svg class="bi">
-                        <use xlink:href="/assets/bootstrap-icons.svg#arrow-right"></use>
-                    </svg>
-                </a>
+<section id="projects" class="py-5">
+    <div class="container-xl px-3 px-md-4">
+        <div class="text-center max-w-700 mx-auto mb-5">
+            <h2 class="h2 fw-bold text-body-emphasis mb-3">Projects &amp; Published Research</h2>
+            <p class="text-body-secondary">
+                A selection of peer-reviewed artificial intelligence research, web platforms, and mobile apps.
             </p>
         </div>
-        <div class="col-lg-6 col-8">
-            <a href="https://doi.org/10.1007/978-3-031-15937-4_37" target="_blank">
-                <img class="img-fluid mt-3 mx-auto shadow rounded"
-                    src="/assets/projects/ICANN.jpeg" alt="ICANN 2022 Front Cover" width="827" height="465"
-                    loading="lazy">
-            </a>
-        </div>
-    </section>
 
-    <section class="row g-3 g-md-5 pb-md-5 mb-5 align-items-center">
-        <div class="col-lg-6">
-            <h3 class="mb-3 fw-semibold lh-sm">ISC Collections</h3>
-            <p class="lead fw-normal">
-                With the help of my Grandad, we have created a digital catalogue featuring a range of items.
-                These include burgees, memorabilia, trophies and racing results from Cowes Week, Round the Island Race, Tuesday Night Racing, and the Inshore Series.
-            </p>
-            <p class="lead fw-normal">
-                You can check out the collections and the website we have built by clicking the link below.
-            </p>
-            <p class="lead fw-normal">
-                <a href="https://www.isccollections.org.uk" target="_blank" class="icon-link icon-link-hover fw-semibold">
-                    View ISC Collections
-                    <svg class="bi">
-                        <use xlink:href="/assets/bootstrap-icons.svg#arrow-right"></use>
-                    </svg>
-                </a>
-            </p>
-        </div>
-        <div class="col-lg-6 col-8">
-            <a href="https://www.isccollections.org.uk" target="_blank">
-                <img class="img-fluid mt-3 mx-auto shadow rounded"
-                    src="/assets/projects/bar-720.jpg" alt="ISC Clubhouse with burgees" width="1280" height="720"
-                    loading="lazy">
-            </a>
-        </div>
-    </section>
+        {% assign flagship = site.data.projects.flagship %}
+        <article class="flagship-card p-4 p-md-5 mb-5 shadow-sm" id="research">
+            <div class="row g-4 g-lg-5 align-items-center">
+                <div class="col-lg-7">
+                    <h3 class="h3 fw-bold text-body-emphasis lh-sm mb-2">
+                        {{ flagship.title }}
+                    </h3>
+                    
+                    <p class="text-primary fw-medium mb-3">
+                        {{ flagship.conference }}
+                    </p>
+                    
+                    <p class="text-body-secondary mb-3">
+                        {{ flagship.summary }}
+                    </p>
 
-    <section class="row g-3 g-md-5 pb-md-5 mb-5 align-items-center">
-        <div class="col-lg-6">
-            <h3 class="mb-3 fw-semibold lh-sm">RoadBuddies</h3>
-            <p class="lead fw-normal">
-                RoadBuddies is an app to track vehicle movements, speed, acceleration and deceleration to provide the driver with feedback about their driving style.
-            </p>
-            <p class="lead fw-normal">
-                Compete and compare your driving styles with your friends and family!
-            </p>
-            <p class="lead fw-normal">
-                <a href="https://www.linkedin.com/in/reece-nicholls/" target="_blank" class="icon-link icon-link-hover fw-semibold">
-                    Learn More? Contact Me
-                    <svg class="bi">
-                        <use xlink:href="/assets/bootstrap-icons.svg#arrow-right"></use>
-                    </svg>
-                </a>
-            </p>
-        </div>
-        <div class="col-lg-6 col-8">
-            <a href="https://www.linkedin.com/in/reece-nicholls/" target="_blank">
-                <img class="img-fluid mt-3 mx-auto shadow rounded"
-                    src="/assets/projects/roadbuddies.jpg" alt="Screenshots of RoadBuddies app" width="932" height="809"
-                    loading="lazy">
-            </a>
-        </div>
-    </section>
+                    <div class="bg-body p-3 rounded-3 border mb-4">
+                        <div class="row g-2 small">
+                            <div class="col-sm-6">
+                                <span class="text-body-secondary">Publication:</span>
+                                <strong class="d-block text-body-emphasis">{{ flagship.publication }}</strong>
+                            </div>
+                            <div class="col-sm-6">
+                                <span class="text-body-secondary">Digital Object Identifier (DOI):</span>
+                                <code class="d-block font-mono text-primary">{{ flagship.doi }}</code>
+                            </div>
+                        </div>
+                    </div>
 
-    <section class="row g-3 g-md-5 pb-md-5 mb-5 align-items-center">
-        <div class="col-lg-6">
-            <h3 class="mb-3 fw-semibold lh-sm">Car Bingo</h3>
-            <p class="lead fw-normal">
-                While traveling by car, bus, or on foot, keep an eye out for the items on your bingo card. When you spot an item, press it your bingo card.
-            </p>
-            <p class="lead fw-normal">
-                Car Bingo currently has UK Road Signs - other countries will be added soon.
-            </p>
-            <p class="lead fw-normal">
-                <a href="https://carbingo.reecenicholls.co.uk" target="_blank" class="icon-link icon-link-hover fw-semibold">
-                    Play Car Bingo
-                    <svg class="bi">
-                        <use xlink:href="/assets/bootstrap-icons.svg#arrow-right"></use>
-                    </svg>
-                </a>
-            </p>
+                    <div class="d-flex flex-wrap gap-2 mb-4">
+                        {% for tag in flagship.tags %}
+                        <span class="tech-pill">{{ tag }}</span>
+                        {% endfor %}
+                    </div>
+
+                    <div>
+                        <a href="{{ flagship.link }}" target="_blank" rel="noopener noreferrer" class="btn btn-primary rounded-pill px-4 py-2 d-inline-flex align-items-center gap-2">
+                            {{ flagship.cta_text }} <i class="bi bi-box-arrow-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-5">
+                    <a href="{{ flagship.link }}" target="_blank" rel="noopener noreferrer" class="d-block text-center" aria-label="View ICANN 2022 Paper">
+                        <img class="img-fluid rounded-4 shadow-sm border"
+                            src="{{ flagship.image }}" 
+                            alt="{{ flagship.image_alt }}" 
+                            width="827" 
+                            height="465"
+                            loading="lazy"
+                            decoding="async">
+                    </a>
+                </div>
+            </div>
+        </article>
+
+        <div class="row g-4">
+            {% for project in site.data.projects.projects %}
+            <div class="col-lg-4 col-md-6">
+                <article class="project-card shadow-sm">
+                    <div class="project-img-wrapper">
+                        <img src="{{ project.image }}" alt="{{ project.image_alt }}" width="1280" height="720" loading="lazy" decoding="async">
+                    </div>
+                    <div class="p-4 d-flex flex-column flex-grow-1">
+                        <h3 class="h5 fw-bold text-body-emphasis mb-2">{{ project.title }}</h3>
+                        <p class="text-body-secondary small mb-4 flex-grow-1">
+                            {{ project.summary }}
+                        </p>
+                        <div class="d-flex flex-wrap gap-2 mb-4">
+                            {% for tag in project.tags %}
+                            <span class="tech-pill">{{ tag }}</span>
+                            {% endfor %}
+                        </div>
+                        <div>
+                            <a href="{{ project.url }}" {% if project.is_external %}target="_blank" rel="noopener noreferrer"{% endif %} class="btn btn-sm btn-outline-primary rounded-pill px-3 w-100 d-flex align-items-center justify-content-center gap-2">
+                                {{ project.cta_text }} <i class="bi {{ project.cta_icon | default: 'bi-box-arrow-up-right' }}"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </div>
+            {% endfor %}
         </div>
-        <div class="col-lg-6 col-8">
-            <a href="https://carbingo.reecenicholls.co.uk" target="_blank">
-                <img class="img-fluid mt-3 mx-auto shadow rounded"
-                    src="/assets/projects/car-bingo.jpg" alt="Grid of icons on a car bingo card" width="700" height="696"
-                    loading="lazy">
-            </a>
-        </div>
-    </section>
-</div>
+    </div>
+</section>

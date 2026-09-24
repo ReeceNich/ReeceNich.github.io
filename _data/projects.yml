@@ -1,0 +1,54 @@
+flagship:
+  title: "Problem Classification for Tailored Helpdesk Auto-replies"
+  conference: "Presented at ICANN 2022 • 31st International Conference on Artificial Neural Networks (Bristol, UK)"
+  summary: "Peer-reviewed research published as lead author and presented at ICANN 2022. Investigated neural network-driven natural language processing models to classify complex IT support tickets and generate context-tailored automated replies, reducing first-response latency in enterprise service desks."
+  publication: "Springer Nature (LNCS Vol 13532)"
+  doi: "10.1007/978-3-031-15937-4_37"
+  tags:
+    - "Neural Networks"
+    - "Supervised Learning"
+    - "NLP"
+    - "Data Augmentation"
+  link: "https://doi.org/10.1007/978-3-031-15937-4_37"
+  cta_text: "Read Paper via Springer"
+  image: "/assets/projects/ICANN.webp"
+  image_alt: "Front cover of ICANN 2022 Proceedings featuring the research paper"
+
+projects:
+  - title: "ISC Collections"
+    summary: "A digital archive platform engineered for the Island Sailing Club. Preserves and catalogues maritime heritage items, historical burgees, racing trophies, and regatta records."
+    tags:
+      - "Web Application"
+      - "Digital Archive"
+    image: "/assets/projects/bar-720.webp"
+    image_alt: "Island Sailing Club Clubhouse with Burgees"
+    cta_text: "Visit ISC Collections"
+    cta_icon: "bi-box-arrow-up-right"
+    url: "https://www.isccollections.org.uk"
+    is_external: true
+
+  - title: "RoadBuddies"
+    summary: "An iOS telemetry application engineered to track vehicle acceleration, braking, and speed using device accelerometer and GPS sensor streams to compute driver safety scores."
+    tags:
+      - "Swift"
+      - "iOS"
+      - "Telemetry"
+    image: "/assets/projects/roadbuddies.webp"
+    image_alt: "RoadBuddies App Interfaces"
+    cta_text: "Discuss RoadBuddies"
+    cta_icon: "bi-linkedin"
+    url: "https://www.linkedin.com/in/reece-nicholls/"
+    is_external: true
+
+  - title: "Car Bingo Travel Game"
+    summary: "A mobile-first client-side web application designed for UK road trips. Features dynamic road sign grids, responsive touch controls, and offline-friendly local state."
+    tags:
+      - "JavaScript"
+      - "Mobile Web"
+      - "Offline Ready"
+    image: "/assets/projects/car-bingo.webp"
+    image_alt: "Car Bingo Game Screen"
+    cta_text: "Play Car Bingo"
+    cta_icon: "bi-box-arrow-up-right"
+    url: "https://carbingo.reecenicholls.co.uk"
+    is_external: true

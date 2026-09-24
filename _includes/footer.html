@@ -1,26 +1,54 @@
-<footer class="bd-footer py-4 py-md-5 mt-5 bg-body-tertiary">
-    <div class="container text-body-secondary">
-        <div class="row">
-            <div class="col-lg-6 mb-3">
-                <a class="d-inline-flex align-items-center mb-2 text-body-emphasis text-decoration-none" href="https://www.linkedin.com/in/reece-nicholls/" aria-label="Reece Nicholls">
-                    <span class="fs-5">Reece Nicholls</span>
-                </a>
-                <ul class="list-unstyled small">
-                    <li class="mb-2">&copy; {{ 'now' | date: "%Y" }} - Made By <a href="https://www.linkedin.com/in/reece-nicholls/" class="text-reset" target="_blank" rel="noopener noreferrer">Reece Nicholls</a></li>
-                    <li class="mb-2"><a href="/privacy.html" class="text-reset">Privacy Statement</a></li>
-                </ul>
+<footer id="contact" class="site-footer border-top py-5 mt-5 bg-body-tertiary">
+    <div class="container-xl px-3 px-md-4">
+        <div class="row g-4 align-items-start justify-content-between mb-4">
+            <div class="col-lg-6">
+                <h2 class="h4 fw-bold text-body-emphasis mb-2">Contact Me</h2>
+                <p class="text-body-secondary mb-4 max-w-700">
+                    
+                </p>
+                <div class="d-flex flex-wrap align-items-center gap-3">
+                    <a href="mailto:{{ site.email | default: 'contact@reecenicholls.co.uk' }}" class="btn btn-primary rounded-pill px-4 py-2 d-inline-flex align-items-center gap-2">
+                        <i class="bi bi-envelope-fill"></i> Get in Touch
+                    </a>
+                    <span class="text-body-secondary small">
+                        <i class="bi bi-geo-alt text-primary me-1"></i> United Kingdom
+                    </span>
+                </div>
             </div>
-            <div class="col-lg-6 mb-3 text-lg-end">
-                <h4>Socials</h4>
-                <ul class="list-unstyled">
-                    <li class="mb-2"><a href="https://www.linkedin.com/in/reece-nicholls" target="_blank" rel="noopener">LinkedIn</a></li>
-                    <li class="mb-2"><a href="https://github.com/ReeceNich" target="_blank" rel="noopener">GitHub</a></li>
-                    <li class="mb-2"><a href="https://www.youtube.com/@reecenicholls" target="_blank" rel="noopener">YouTube</a></li>
-                </ul>
+
+            <div class="col-lg-5 col-xl-4">
+                <h3 class="h6 fw-semibold text-body-secondary text-uppercase tracking-wider mb-3">Socials</h3>
+                <div class="d-flex flex-column gap-2">
+                    {% for social in site.data.socials %}
+                    {% unless social.primary %}
+                    <a href="{{ social.url }}" target="_blank" rel="noopener noreferrer" class="footer-social-link text-body-secondary hover-text-primary text-decoration-none d-flex align-items-center justify-content-between p-2 rounded-2">
+                        <span class="d-inline-flex align-items-center gap-2">
+                            <i class="bi {{ social.icon }} fs-5"></i>
+                            <span class="fw-medium text-body-emphasis">{{ social.name }}</span>
+                        </span>
+                        <span class="small text-body-secondary d-flex align-items-center gap-1">
+                            {{ social.label }} <i class="bi bi-box-arrow-up-right fs-7"></i>
+                        </span>
+                    </a>
+                    {% endunless %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+        <hr class="my-4 border-secondary opacity-25">
+
+        <div class="row align-items-center justify-content-between small text-body-secondary g-2">
+            <div class="col-md-6 text-center text-md-start">
+                &copy; <span id="copyright-year">{{ 'now' | date: "%Y" }}</span> Reece Nicholls. All rights reserved.
+            </div>
+            <div class="col-md-6 text-center text-md-end d-flex justify-content-center justify-content-md-end align-items-center gap-3">
+                <a href="/privacy.html" class="text-body-secondary text-decoration-underline">Privacy Statement</a>
+                <span class="text-body-tertiary">&bull;</span>
+                <a href="#about" class="text-body-secondary text-decoration-none hover-text-primary">Back to Top <i class="bi bi-arrow-up"></i></a>
             </div>
         </div>
     </div>
 </footer>
 
-<script src="/lib/bootstrap.bundle.min.js"></script>
-<script src="/lib/site.js"></script>
+<script src="/lib/site.js" defer></script>

@@ -1,0 +1,20 @@
+- name: "Email"
+  label: "contact@reecenicholls.co.uk"
+  url: "mailto:contact@reecenicholls.co.uk"
+  icon: "bi-envelope-fill"
+  primary: true
+
+- name: "LinkedIn"
+  label: "linkedin.com/in/reece-nicholls"
+  url: "https://www.linkedin.com/in/reece-nicholls/"
+  icon: "bi-linkedin"
+
+- name: "GitHub"
+  label: "github.com/ReeceNich"
+  url: "https://github.com/ReeceNich"
+  icon: "bi-github"
+
+- name: "YouTube"
+  label: "@reecenicholls"
+  url: "https://www.youtube.com/@reecenicholls"
+  icon: "bi-youtube"

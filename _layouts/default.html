@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="light">
+<html lang="{{ site.lang | default: 'en-GB' }}">
 <head>
     {% include head.html %}
 </head>
 <body>
+    <a href="#main-content" class="visually-hidden-focusable p-3 bg-body text-body position-absolute start-0 top-0 z-3">Skip to main content</a>
     
     {% include navbar.html %}
 
-    <main>
+    <main id="main-content">
         {{ content }}
     </main>
 
