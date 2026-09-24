@@ -1,7 +1,10 @@
 # Site settings
-title: Reece Nicholls
-description: I am a Web Engineer, with additional interests in mobile app development and data science.
+title: Reece Nicholls | Full-Stack .NET & Software Engineer
+description: Full-Stack .NET & Software Engineer specialising in C#, .NET, Azure, DevOps, CI/CD automation, and web architecture.
 url: "https://www.reecenicholls.co.uk"
+email: "contact@reecenicholls.co.uk"
+lang: "en-GB"
+locale: "en_GB"
 
 # Build settings
 exclude:

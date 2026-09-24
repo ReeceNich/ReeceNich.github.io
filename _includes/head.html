@@ -1,8 +1,23 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>{{ page.title | default: "Reece Nicholls" }}</title>
-<meta name="description" content="{{ page.description | default: 'Web Engineer and Developer' }}">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#f8f9fa">
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0b0f19">
+
+<title>{{ page.title | default: site.title }}</title>
+<meta name="description" content="{{ page.description | default: site.description }}">
+<meta name="author" content="Reece Nicholls">
+<link rel="canonical" href="{{ site.url }}{{ page.url }}">
 <link rel="icon" href="/assets/favicon.ico">
+
+<meta property="og:title" content="{{ page.title | default: site.title }}">
+<meta property="og:description" content="{{ page.description | default: site.description }}">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="{{ site.locale | default: 'en_GB' }}">
+<meta property="og:url" content="{{ site.url }}{{ page.url }}">
+<meta property="og:image" content="{{ site.url }}/assets/reece.jpg">
+<meta name="twitter:card" content="summary">
+
 <script src="/lib/theme.js"></script>
 
 <link rel="stylesheet" href="/lib/bootstrap.min.css">

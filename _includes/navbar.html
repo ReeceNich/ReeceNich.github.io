@@ -1,19 +1,35 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid px-4">
-    <a class="navbar-brand fs-3 fw-light" href="/">Reece Nicholls</a>
+<nav class="navbar navbar-expand-lg site-navbar sticky-top border-bottom">
+  <div class="container-xl px-3 px-md-4">
+    <a class="navbar-brand fw-semibold fs-5" href="/">Reece Nicholls</a>
     
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler border-0 p-2 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     
     <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
-      <ul class="navbar-nav align-items-center">
+      <ul class="navbar-nav align-items-center gap-1 gap-lg-2 pt-3 pt-lg-0">
         <li class="nav-item">
-          <a class="nav-link {% if page.url == '/' %}active{% endif %}" aria-current="page" href="/">Home</a>
+          <a class="nav-link px-2 px-lg-3 py-2 fw-medium" href="/#about">About</a>
         </li>
-        <li class="nav-item ms-lg-3">
-          <button class="btn btn-outline-secondary" id="theme-btn" type="button" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle theme">
-            <i class="bi bi-moon-stars"></i>
+        <li class="nav-item">
+          <a class="nav-link px-2 px-lg-3 py-2 fw-medium" href="/#skills">Skills</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-2 px-lg-3 py-2 fw-medium" href="/#projects">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link px-2 px-lg-3 py-2 fw-medium" href="/#contact">Contact</a>
+        </li>
+        <li class="nav-item d-none d-lg-block nav-divider mx-2 my-auto" aria-hidden="true"></li>
+        <li class="nav-item d-flex align-items-center gap-2 mt-2 mt-lg-0">
+          <a class="nav-link p-2 text-body-secondary hover-text-primary" href="https://github.com/ReeceNich" target="_blank" rel="noopener noreferrer" aria-label="GitHub Profile">
+            <i class="bi bi-github fs-5"></i>
+          </a>
+          <a class="nav-link p-2 text-body-secondary hover-text-primary" href="https://www.linkedin.com/in/reece-nicholls/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn Profile">
+            <i class="bi bi-linkedin fs-5"></i>
+          </a>
+          <button class="btn btn-sm btn-theme-toggle ms-1" id="theme-btn" type="button" onclick="toggleTheme()" title="Toggle theme" aria-label="Toggle theme">
+            <i class="bi bi-moon-stars-fill"></i>
           </button>
         </li>
       </ul>
