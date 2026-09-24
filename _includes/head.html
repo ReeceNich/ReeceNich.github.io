@@ -18,8 +18,22 @@
 <meta property="og:image" content="{{ site.url }}/assets/reece.jpg">
 <meta name="twitter:card" content="summary">
 
-<script src="/lib/theme.js"></script>
+<script>
+  (function() {
+    try {
+      var stored = localStorage.getItem('theme');
+      var validStored = stored === 'dark' || stored === 'light' ? stored : null;
+      var systemTheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+      var theme = validStored || systemTheme;
+      document.documentElement.setAttribute('data-bs-theme', theme);
+      var meta = document.querySelector('meta[name="color-scheme"]');
+      if (meta) { meta.setAttribute('content', theme); }
+    } catch (e) {}
+  })();
+</script>
 
+<link rel="preload" href="/lib/bootstrap.min.css" as="style">
 <link rel="stylesheet" href="/lib/bootstrap.min.css">
-<link rel="stylesheet" href="/lib/bootstrap-icons/bootstrap-icons.min.css">
+<link rel="preload" href="/lib/bootstrap-icons/bootstrap-icons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="/lib/bootstrap-icons/bootstrap-icons.min.css"></noscript>
 <link rel="stylesheet" href="/lib/style.css">
