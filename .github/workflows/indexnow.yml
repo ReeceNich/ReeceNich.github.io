@@ -1,0 +1,44 @@
+name: Ping IndexNow (Bing & DuckDuckGo)
+
+on:
+  deployment_status:
+  workflow_dispatch:
+
+jobs:
+  ping-indexnow:
+    if: github.event_name == 'workflow_dispatch' || github.event.deployment_status.state == 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Wait for deploy to fire up.
+        run: |
+          echo "Deployment succeeded. Waiting 5 seconds..."
+          sleep 5
+
+      - name: Submit URLs to IndexNow
+        run: |
+          RESPONSE=$(curl -s -w "\n%{http_code}" -X POST "https://api.indexnow.org/indexnow" \
+            -H "Content-Type: application/json; charset=utf-8" \
+            -d '{
+              "host": "www.reecenicholls.co.uk",
+              "key": "c5b45e3230e44a62bbd8bc10731d8ea4",
+              "keyLocation": "https://www.reecenicholls.co.uk/c5b45e3230e44a62bbd8bc10731d8ea4.txt",
+              "urlList": [
+                "https://www.reecenicholls.co.uk/",
+                "https://www.reecenicholls.co.uk/privacy.html"
+              ]
+            }')
+          
+          HTTP_BODY=$(echo "$RESPONSE" | sed '$d')
+          HTTP_STATUS=$(echo "$RESPONSE" | tail -n 1)
+
+          echo "IndexNow HTTP Status: $HTTP_STATUS"
+          if [ -n "$HTTP_BODY" ]; then
+            echo "Response: $HTTP_BODY"
+          fi
+
+          # IndexNow returns 200 (OK) or 202 (Accepted) on success
+          if [ "$HTTP_STATUS" -eq 200 ] || [ "$HTTP_STATUS" -eq 202 ]; then
+            echo "Successfully submitted URLs to IndexNow!"
+          else
+            echo "Warning: IndexNow returned unexpected status code $HTTP_STATUS"
+          fi
