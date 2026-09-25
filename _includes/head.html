@@ -8,6 +8,7 @@
 <meta name="description" content="{{ page.description | default: site.description }}">
 <meta name="author" content="Reece Nicholls">
 <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+<meta name="thumbnail" content="{{ site.url }}/assets/reece.jpg">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png">
 <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png">
@@ -20,17 +21,17 @@
 <meta property="og:type" content="website">
 <meta property="og:locale" content="{{ site.locale | default: 'en_GB' }}">
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-<meta property="og:image" content="{{ site.url }}/assets/reece.jpg">
-<meta property="og:image:width" content="1426">
-<meta property="og:image:height" content="1426">
-<meta property="og:image:type" content="image/jpeg">
-<meta property="og:image:alt" content="Portrait of Reece Nicholls">
+<meta property="og:image" content="{{ site.url }}/assets/social-card.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:alt" content="{{ page.title | default: site.title }}">
 
-<meta name="twitter:card" content="summary">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ page.title | default: site.title }}">
 <meta name="twitter:description" content="{{ page.description | default: site.description }}">
-<meta name="twitter:image" content="{{ site.url }}/assets/reece.jpg">
-<meta name="twitter:image:alt" content="Portrait of Reece Nicholls">
+<meta name="twitter:image" content="{{ site.url }}/assets/social-card.png">
+<meta name="twitter:image:alt" content="{{ page.title | default: site.title }}">
 
 {% if page.robots %}
 <meta name="robots" content="{{ page.robots }}">

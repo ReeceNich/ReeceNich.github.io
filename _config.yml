@@ -1,6 +1,6 @@
 # Site settings
 title: Reece Nicholls | Full-Stack .NET & Software Engineer
-description: Full-Stack .NET & Software Engineer specialising in C#, .NET, Azure, DevOps, CI/CD automation, and web architecture.
+description: Hi, I'm Reece Nicholls. Full-Stack .NET & Software Engineer. I build enterprise web applications, backend services, and cloud infrastructure.
 url: "https://www.reecenicholls.co.uk"
 email: "contact@reecenicholls.co.uk"
 lang: "en-GB"
@@ -16,3 +16,4 @@ exclude:
   - Gemfile.lock
   - README.md
   - .DS_Store
+  - .github

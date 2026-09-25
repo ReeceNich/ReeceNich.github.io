@@ -1,3 +1,43 @@
+{% unless page.robots contains "noindex" %}
+{% if page.url contains "privacy" %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebPage",
+      "@id": "{{ site.url }}{{ page.url }}#webpage",
+      "url": "{{ site.url }}{{ page.url }}",
+      "name": "{{ page.title }}",
+      "description": "{{ page.description }}",
+      "isPartOf": {
+        "@type": "WebSite",
+        "@id": "{{ site.url }}/#website",
+        "url": "{{ site.url }}",
+        "name": "Reece Nicholls"
+      },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "{{ site.url }}/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Privacy Statement",
+            "item": "{{ site.url }}{{ page.url }}"
+          }
+        ]
+      }
+    }
+  ]
+}
+</script>
+{% else %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -8,9 +48,14 @@
       "name": "Reece Nicholls",
       "givenName": "Reece",
       "familyName": "Nicholls",
-      "url": "{{ site.url }}",
+      "url": "{{ site.url }}/",
       "image": "{{ site.url }}/assets/reece.jpg",
       "jobTitle": "Full-Stack .NET & Software Engineer",
+      "email": "mailto:{{ site.email | default: 'contact@reecenicholls.co.uk' }}",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "GB"
+      },
       "worksFor": {
         "@type": "CollegeOrUniversity",
         "name": "University of the West of England (UWE Bristol)",
@@ -22,6 +67,16 @@
         "name": "University of the West of England (UWE Bristol)",
         "url": "https://www.uwe.ac.uk",
         "sameAs": "https://en.wikipedia.org/wiki/University_of_the_West_of_England"
+      },
+      "hasCredential": {
+        "@type": "EducationalOccupationalCredential",
+        "credentialCategory": "degree",
+        "name": "BSc (Hons) Business Computing",
+        "recognizedBy": {
+          "@type": "CollegeOrUniversity",
+          "name": "University of the West of England (UWE Bristol)",
+          "url": "https://www.uwe.ac.uk"
+        }
       },
       "nationality": {
         "@type": "Country",
@@ -50,7 +105,7 @@
     {
       "@type": "WebSite",
       "@id": "{{ site.url }}/#website",
-      "url": "{{ site.url }}",
+      "url": "{{ site.url }}/",
       "name": "Reece Nicholls",
       "description": "{{ site.description }}",
       "publisher": {
@@ -61,17 +116,23 @@
     {
       "@type": "ProfilePage",
       "@id": "{{ site.url }}/#webpage",
-      "url": "{{ site.url }}",
+      "url": "{{ site.url }}/",
       "name": "{{ page.title | default: site.title }}",
       "isPartOf": {
         "@id": "{{ site.url }}/#website"
       },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "@id": "{{ site.url }}/#primaryimage",
+        "url": "{{ site.url }}/assets/reece.jpg",
+        "contentUrl": "{{ site.url }}/assets/reece.jpg",
+        "caption": "Portrait of Reece Nicholls"
+      },
+      "image": "{{ site.url }}/assets/reece.jpg",
       "mainEntity": {
         "@id": "{{ site.url }}/#person"
       }
-    }
-    {% if page.url == "/" or page.url == "" %}
-    ,
+    },
     {
       "@type": "ScholarlyArticle",
       "@id": "https://doi.org/10.1007/978-3-031-15937-4_37",
@@ -94,7 +155,8 @@
         }
       }
     }
-    {% endif %}
   ]
 }
 </script>
+{% endif %}
+{% endunless %}
