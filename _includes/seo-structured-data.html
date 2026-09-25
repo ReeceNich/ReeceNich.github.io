@@ -6,12 +6,22 @@
       "@type": "Person",
       "@id": "{{ site.url }}/#person",
       "name": "Reece Nicholls",
+      "givenName": "Reece",
+      "familyName": "Nicholls",
       "url": "{{ site.url }}",
       "image": "{{ site.url }}/assets/reece.jpg",
       "jobTitle": "Full-Stack .NET & Software Engineer",
+      "worksFor": {
+        "@type": "CollegeOrUniversity",
+        "name": "University of the West of England (UWE Bristol)",
+        "url": "https://www.uwe.ac.uk",
+        "sameAs": "https://en.wikipedia.org/wiki/University_of_the_West_of_England"
+      },
       "alumniOf": {
         "@type": "CollegeOrUniversity",
-        "name": "University of the West of England (UWE Bristol)"
+        "name": "University of the West of England (UWE Bristol)",
+        "url": "https://www.uwe.ac.uk",
+        "sameAs": "https://en.wikipedia.org/wiki/University_of_the_West_of_England"
       },
       "nationality": {
         "@type": "Country",
@@ -30,10 +40,11 @@
         "Full-Stack Web Development"
       ],
       "sameAs": [
-        "https://github.com/ReeceNich",
+        "https://people.uwe.ac.uk/Person/ReeceNicholls",
         "https://www.linkedin.com/in/reece-nicholls/",
-        "https://www.youtube.com/@reecenicholls",
-        "https://doi.org/10.1007/978-3-031-15937-4_37"
+        "https://doi.org/10.1007/978-3-031-15937-4_37",
+        "https://github.com/ReeceNich",
+        "https://www.youtube.com/@reecenicholls"
       ]
     },
     {
@@ -46,6 +57,18 @@
         "@id": "{{ site.url }}/#person"
       },
       "inLanguage": "en-GB"
+    },
+    {
+      "@type": "ProfilePage",
+      "@id": "{{ site.url }}/#webpage",
+      "url": "{{ site.url }}",
+      "name": "{{ page.title | default: site.title }}",
+      "isPartOf": {
+        "@id": "{{ site.url }}/#website"
+      },
+      "mainEntity": {
+        "@id": "{{ site.url }}/#person"
+      }
     }
     {% if page.url == "/" or page.url == "" %}
     ,

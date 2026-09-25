@@ -9,6 +9,11 @@
   url: "https://www.linkedin.com/in/reece-nicholls/"
   icon: "bi-linkedin"
 
+- name: "UWE Bristol"
+  label: "people.uwe.ac.uk"
+  url: "https://people.uwe.ac.uk/Person/ReeceNicholls"
+  icon: "bi-mortarboard-fill"
+
 - name: "GitHub"
   label: "github.com/ReeceNich"
   url: "https://github.com/ReeceNich"

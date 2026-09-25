@@ -16,7 +16,7 @@ flagship:
 
 projects:
   - title: "ISC Collections"
-    summary: "A digital archive platform engineered for the Island Sailing Club. Preserves and catalogues maritime heritage items, historical burgees, racing trophies, and regatta records."
+    summary: "A digital archive for the Island Sailing Club. Preserves and catalogues maritime heritage items, historical burgees, racing trophies, and regatta records."
     tags:
       - "Web Application"
       - "Digital Archive"
@@ -28,7 +28,7 @@ projects:
     is_external: true
 
   - title: "RoadBuddies"
-    summary: "An iOS telemetry application engineered to track vehicle acceleration, braking, and speed using device accelerometer and GPS sensor streams to compute driver safety scores."
+    summary: "An iOS telemetry application to track vehicle acceleration, braking, and speed using device accelerometer and GPS sensor streams to compute driver safety scores."
     tags:
       - "Swift"
       - "iOS"
